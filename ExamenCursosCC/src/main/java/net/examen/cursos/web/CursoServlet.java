@@ -67,7 +67,7 @@ public class CursoServlet extends HttpServlet {
 	}
 	private void listUser(HttpServletRequest request, HttpServletResponse response)
 		    throws SQLException, IOException, ServletException {
-		        List < Curso > listCurso = CursoDAO.selectAllCursos();
+		        List < Curso > listCurso = cursoDAO.selectAllCursos();
 		        request.setAttribute("listCurso", listCurso);
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("curso-list.jsp");
 		        dispatcher.forward(request, response);
@@ -106,7 +106,7 @@ public class CursoServlet extends HttpServlet {
 		        String nombre = request.getParameter("nombre");
 		        String profesor = request.getParameter("profesor");
 		        String semestre = request.getParameter("semestre");
-		        String pre_requisito = request.getParameter("pre_requisito")
+		        String pre_requisito = request.getParameter("pre_requisito");
 
 		        Curso curso = new Curso(id, nombre, profesor,semestre,pre_requisito);
 		        cursoDAO.updateUser(curso);
